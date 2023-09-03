@@ -1,19 +1,35 @@
-import { useEffect } from "react";
-import { Container, TitleStyle } from "./TrendingList.styled";
-import { getMovies } from "components/API";
-
+import { useEffect, useState } from 'react';
+import { Container, ListElementStyle, TitleStyle } from './TrendingList.styled';
+import { getMovies } from 'components/API';
 
 export const TrendingList = () => {
+  const adress = '/trending/all/day';
+  const [trendingMovies, setTrendingMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const moviesData = await getMovies(adress);
+        setTrendingMovies(moviesData.results);
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <Container>
       <TitleStyle>Trending today</TitleStyle>
       <ul>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
+        {trendingMovies.map(movie => {
+          if (!movie.title) {
+            return null
+          }
+          return (
+            <ListElementStyle key={movie.id}>{movie.title}</ListElementStyle>
+          );
+        })}
       </ul>
     </Container>
   );

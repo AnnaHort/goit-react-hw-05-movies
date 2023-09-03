@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const HeaderListStyled = styled.ul`
-padding: 20px;
+padding: 20px 20px 60px 40px;
 display: flex;
 gap: 20px;
 `
+
 
 export const LinkElementStyle = styled.a`
 text-decoration: none;
