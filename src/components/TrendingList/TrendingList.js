@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Container, LinkElement, ListElementStyle, TitleStyle } from './TrendingList.styled';
 import { getMovies } from 'components/API';
-import { Link } from 'react-router-dom';
 
 export const TrendingList = () => {
   const adress = '/trending/all/day';
