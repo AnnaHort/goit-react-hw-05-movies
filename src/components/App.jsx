@@ -7,6 +7,7 @@ export const App = () => {
     <>
       <HeaderList />
       <TrendingList />
+
       <GlobalStyle/>
     </>
   );

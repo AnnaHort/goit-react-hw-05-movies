@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const HeaderListStyled = styled.ul`
@@ -7,7 +8,7 @@ gap: 20px;
 `
 
 
-export const LinkElementStyle = styled.a`
+export const LinkStyle = styled(Link)`
 text-decoration: none;
 color: black;
 font-size: 20px;

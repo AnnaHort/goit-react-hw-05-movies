@@ -1,14 +1,17 @@
-import { HeaderListStyled, LinkElementStyle } from './HeaderList.styled';
+import { HeaderListStyled, LinkStyle } from './HeaderList.styled';
 
 export const HeaderList = () => {
   return (
-    <HeaderListStyled>
+    <nav>
+          <HeaderListStyled>
       <li>
-        <LinkElementStyle href="#">Home</LinkElementStyle>
+        <LinkStyle to="/">Home</LinkStyle>
       </li>
       <li>
-        <LinkElementStyle href="#">Movies</LinkElementStyle>
+        <LinkStyle to="/movies">Movies</LinkStyle>
       </li>
     </HeaderListStyled>
+    </nav>
+
   );
 };

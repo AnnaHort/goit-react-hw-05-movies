@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Container, ListElementStyle, TitleStyle } from './TrendingList.styled';
+import { Container, LinkElement, ListElementStyle, TitleStyle } from './TrendingList.styled';
 import { getMovies } from 'components/API';
+import { Link } from 'react-router-dom';
 
 export const TrendingList = () => {
   const adress = '/trending/all/day';
@@ -18,6 +19,8 @@ export const TrendingList = () => {
     fetchData();
   }, []);
 
+
+
   return (
     <Container>
       <TitleStyle>Trending today</TitleStyle>
@@ -27,7 +30,9 @@ export const TrendingList = () => {
             return null
           }
           return (
-            <ListElementStyle key={movie.id}>{movie.title}</ListElementStyle>
+            <ListElementStyle key={movie.id}>
+              <LinkElement>{movie.title}</LinkElement>
+              </ListElementStyle>
           );
         })}
       </ul>
