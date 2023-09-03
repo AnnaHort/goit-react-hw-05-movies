@@ -1,16 +1,13 @@
+import { GlobalStyle } from './GlobalStyle';
+import { HeaderList } from './HeaderList/HeaderList';
+import { TrendingList } from './TrendingList/TrendingList';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <HeaderList />
+      <TrendingList />
+      <GlobalStyle/>
+    </>
   );
 };
