@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-padding: 0 20px 20px 40px;
+padding: 20px 20px 20px 40px;
 `
 
 export const TitleStyle = styled.h2`

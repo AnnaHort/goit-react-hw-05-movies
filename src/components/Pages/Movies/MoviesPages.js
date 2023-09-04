@@ -2,6 +2,7 @@ import { BsArrowBarLeft } from 'react-icons/bs';
 import {
   ContainerInfo,
   ContainerStyled,
+  GoBackStyle,
   MovieInfoStyle,
   TitleStyled,
 } from './Movies.styled';
@@ -11,10 +12,10 @@ export const Movies = () => {
   return (
     <ContainerStyled>
       <TitleStyled>Movies</TitleStyled>
-      <Link to='/'>
+      <GoBackStyle to='/'>
         <BsArrowBarLeft />
         Go back
-      </Link>
+      </GoBackStyle>
       <MovieInfoStyle>info about movie</MovieInfoStyle>
       <ContainerInfo>
         <Link to=''>Cast</Link>
