@@ -11,14 +11,14 @@ export const Movies = () => {
   return (
     <ContainerStyled>
       <TitleStyled>Movies</TitleStyled>
-      <Link>
+      <Link to='/'>
         <BsArrowBarLeft />
         Go back
       </Link>
       <MovieInfoStyle>info about movie</MovieInfoStyle>
       <ContainerInfo>
-        <Link>Cast</Link>
-        <Link>Reviews</Link>
+        <Link to='/movies/:id/cast'>Cast</Link>
+        <Link to='/movies/:id/reviews'>Reviews</Link>
       </ContainerInfo>
     </ContainerStyled>
   );

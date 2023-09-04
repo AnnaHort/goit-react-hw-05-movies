@@ -6,7 +6,8 @@ import {
 } from './MoviesSearchPages.style';
 import { useState } from 'react';
 import { getMovies } from 'components/API';
-import { Link } from 'react-router-dom';
+import { SearchingMoviesList } from 'components/Pages/SearchigMovies';
+import { Routes } from 'react-router-dom';
 
 export const MoviesSearch = () => {
   const adress = '/search/movie';
@@ -48,18 +49,7 @@ export const MoviesSearch = () => {
           <BiSearchAlt2 />
         </SearchButtonStyled>
       </SearchForm>
-      <ul>
-        {trendingMovies.map(movie => {
-          if (!movie.title) {
-            return null;
-          }
-          return (
-            <li key={movie.id}>
-              <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      <SearchingMoviesList trendingMovies={trendingMovies}/>
     </>
   );
 };
