@@ -18,8 +18,6 @@ export const TrendingList = () => {
     fetchData();
   }, []);
 
-
-
   return (
     <Container>
       <TitleStyle>Trending today</TitleStyle>
