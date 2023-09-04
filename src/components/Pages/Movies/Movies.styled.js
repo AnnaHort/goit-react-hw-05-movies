@@ -6,7 +6,7 @@ export const ContainerStyled = styled.div`
 `;
 
 export const TitleStyled = styled.h2`
-  margin-bottom: 8px;
+  margin-bottom: 20px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 30px;
 `;
