@@ -6,7 +6,6 @@ import {
   TitleStyle,
 } from './TrendingList.styled';
 import { getMovies } from 'components/API';
-import { Outlet } from 'react-router-dom';
 
 export const TrendingList = () => {
   const adress = '/trending/all/day';
