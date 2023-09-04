@@ -9,7 +9,8 @@ export const SearchingMoviesList = ({ trendingMovies }) => {
         }
         return (
           <li key={movie.id}>
-            <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+            <Link to=''>{movie.title}</Link>
+            {/* <Link to={`/movie/${movie.id}`}>{movie.title}</Link> */}
           </li>
         );
       })}

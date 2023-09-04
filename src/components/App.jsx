@@ -1,20 +1,21 @@
-import { Route, Routes } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
 import { HeaderList } from './HeaderList/HeaderList';
 import { TrendingList } from './Pages/TrendingList/TrendingListPages';
 import { MoviesSearch } from './MoviesSearch/MoviesSearchPages';
 import { Movies } from './Pages/Movies/MoviesPages';
+import { NotFound } from './NotFound';
 
 export const App = () => {
   return (
     <>
-    <HeaderList/>
       <Routes>
-        <Route path="/" element={<TrendingList/>}></Route>
-        <Route path="/movies" element={<MoviesSearch />}></Route>
-        <Route path="/movies/:id" element={<Movies/>}></Route>
-        <Route path="/movies/:id/cast" element={<div>cast of selected movies</div>}></Route>
-        <Route path="/movies/:id/reviews" element={<div>reviews of selected movies</div>}></Route>
+        <Route path="/" element={<HeaderList />}>
+          <Route index element={<TrendingList />}/>
+          <Route path="movies" element={<MoviesSearch />}/>
+          <Route path="movies/:id" element={<Movies />}/>
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <GlobalStyle />
     </>

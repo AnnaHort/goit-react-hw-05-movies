@@ -5,7 +5,7 @@ import {
   MovieInfoStyle,
   TitleStyled,
 } from './Movies.styled';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 export const Movies = () => {
   return (
@@ -17,9 +17,10 @@ export const Movies = () => {
       </Link>
       <MovieInfoStyle>info about movie</MovieInfoStyle>
       <ContainerInfo>
-        <Link to='/movies/:id/cast'>Cast</Link>
-        <Link to='/movies/:id/reviews'>Reviews</Link>
+        <Link to=''>Cast</Link>
+        <Link to=''>Reviews</Link>
       </ContainerInfo>
+      <Outlet/>
     </ContainerStyled>
   );
 };
