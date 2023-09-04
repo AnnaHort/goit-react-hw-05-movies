@@ -30,7 +30,7 @@ export const TrendingList = () => {
           }
           return (
             <ListElementStyle key={movie.id}>
-              <LinkElement>{movie.title}</LinkElement>
+              <LinkElement to='/movies/id'>{movie.title}</LinkElement>
               </ListElementStyle>
           );
         })}

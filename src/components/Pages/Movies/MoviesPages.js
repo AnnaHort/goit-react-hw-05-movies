@@ -1,14 +1,25 @@
 import { BsArrowBarLeft } from 'react-icons/bs';
-import { ButtonStyled, ContainerStyled, TitleStyled } from './Movies.styled';
+import {
+  ContainerInfo,
+  ContainerStyled,
+  MovieInfoStyle,
+  TitleStyled,
+} from './Movies.styled';
+import { Link } from 'react-router-dom';
 
 export const Movies = () => {
   return (
     <ContainerStyled>
       <TitleStyled>Movies</TitleStyled>
-      <ButtonStyled type="button">
+      <Link>
         <BsArrowBarLeft />
         Go back
-      </ButtonStyled>
+      </Link>
+      <MovieInfoStyle>info about movie</MovieInfoStyle>
+      <ContainerInfo>
+        <Link>Cast</Link>
+        <Link>Reviews</Link>
+      </ContainerInfo>
     </ContainerStyled>
   );
 };

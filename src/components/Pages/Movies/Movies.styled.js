@@ -10,17 +10,11 @@ export const TitleStyled = styled.h2`
   font-size: 30px;
 `;
 
-export const ButtonStyled = styled.button`
-padding: 3px 6px;
+export const MovieInfoStyle = styled.div`
+padding: 50px;
+`
+
+export const ContainerInfo = styled.div`
 display: flex;
-align-items: center;
-border: 1px solid lightgray;
-border-radius: 4px;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-&:hover:focus{
-    background-color: lightgray;
-    border: 1px solid lightgray;
-    color: red;
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+flex-direction: column;
 `
