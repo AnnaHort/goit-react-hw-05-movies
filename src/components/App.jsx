@@ -1,4 +1,4 @@
-import { Outlet, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
 import { HeaderList } from './HeaderList/HeaderList';
 import { TrendingList } from './Pages/TrendingList/TrendingListPages';
