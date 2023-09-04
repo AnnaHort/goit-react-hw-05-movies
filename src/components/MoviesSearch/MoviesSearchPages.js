@@ -6,7 +6,7 @@ import {
 } from './MoviesSearchPages.style';
 import { useState } from 'react';
 import { getMovies } from 'components/API';
-import { SearchingMoviesList } from 'components/Pages/SearchigMovies';
+import { SearchingMoviesList } from 'components/Pages/SearchigMovies/SearchigMovies';
 import { Outlet } from 'react-router-dom';
 
 export const MoviesSearch = () => {

@@ -4,7 +4,7 @@ import { HeaderList } from './HeaderList/HeaderList';
 import { TrendingList } from './Pages/TrendingList/TrendingListPages';
 import { MoviesSearch } from './MoviesSearch/MoviesSearchPages';
 import { Movies } from './Pages/Movies/MoviesPages';
-import { NotFound } from './NotFound';
+import { NotFound } from './NotFoundComponent/NotFound';
 
 export const App = () => {
   return (

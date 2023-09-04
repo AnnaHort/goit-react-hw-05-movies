@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom';
+import { LinkElement, ListElementStyle, ListStyle } from './SearchigMovies.styled';
 
 export const SearchingMoviesList = ({ trendingMovies }) => {
   return (
-    <ul>
+    <ListStyle>
       {trendingMovies.map(movie => {
         if (!movie.title) {
           return null;
         }
         return (
-          <li key={movie.id}>
-            <Link to=''>{movie.title}</Link>
+          <ListElementStyle key={movie.id}>
+            <LinkElement to=''>{movie.title}</LinkElement>
             {/* <Link to={`/movie/${movie.id}`}>{movie.title}</Link> */}
-          </li>
+          </ListElementStyle>
         );
       })}
-    </ul>
+    </ListStyle>
   );
 };
