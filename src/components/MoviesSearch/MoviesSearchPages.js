@@ -1,40 +1,45 @@
-import { BiSearchAlt2 } from 'react-icons/bi';
-import {
-  SearchButtonStyled,
-  InputStyled,
-  SearchForm,
-} from './MoviesSearchPages.style';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { getMovies } from 'components/API';
 import { SearchingMoviesList } from 'components/Pages/SearchigMovies/SearchigMovies';
-import { useSearchParams } from 'react-router-dom';
-
-
+import { InputStyled, SearchButtonStyled, SearchForm } from './MoviesSearchPages.style';
+import { BiSearchAlt2 } from 'react-icons/bi';
 
 
 export const MoviesSearch = () => {
   const adress = '/search/movie';
   const [inputValue, setInputValue] = useState('');
   const [trendingMovies, setTrendingMovies] = useState([]);
-  const [, setSearchParams] = useSearchParams('');
+  const [searchParams, setSearchParams] = useSearchParams('');
 
-  const handleSubmit = async e => {
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const query = searchParams.get('query');
+        if (query) {
+          const moviesData = await getMovies(`${adress}?query=${query}`);
+          setTrendingMovies(moviesData.results);
+        } else {
+          setTrendingMovies([]);
+        }
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+      }
+    };
+  
+    fetchMovies();
+  }, [searchParams]);
+  
+
+  const handleSubmit = e => {
     e.preventDefault();
     if (!inputValue) {
       return alert('You did not write any movie :(');
     }
-
-    try {
-      const moviesData = await getMovies(`${adress}?query=${inputValue}`);
-      setTrendingMovies(moviesData.results);
-      setSearchParams({ query: inputValue });
-
-    } catch (error) {
-      console.error('Error fetching movies:', error);
-    }
+    setSearchParams({ query: inputValue });
     e.target.reset();
   };
-
 
   const handleInputChange = e => {
     setInputValue(e.target.value);
@@ -54,9 +59,7 @@ export const MoviesSearch = () => {
           <BiSearchAlt2 />
         </SearchButtonStyled>
       </SearchForm>
-     
-      <SearchingMoviesList trendingMovies={trendingMovies}/>
-     
+      <SearchingMoviesList trendingMovies={trendingMovies} />
     </>
   );
 };
