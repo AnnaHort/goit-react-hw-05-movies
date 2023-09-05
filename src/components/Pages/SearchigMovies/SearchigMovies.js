@@ -1,4 +1,8 @@
-import { LinkElement, ListElementStyle, ListStyle } from './SearchigMovies.styled';
+import {
+  LinkElement,
+  ListElementStyle,
+  ListStyle,
+} from './SearchigMovies.styled';
 
 export const SearchingMoviesList = ({ trendingMovies }) => {
   return (
@@ -9,8 +13,7 @@ export const SearchingMoviesList = ({ trendingMovies }) => {
         }
         return (
           <ListElementStyle key={movie.id}>
-            <LinkElement to=''>{movie.title}</LinkElement>
-            {/* <Link to={`/movie/${movie.id}`}>{movie.title}</Link> */}
+            <LinkElement to={`/movie/${movie.id}`}>{movie.title}</LinkElement>
           </ListElementStyle>
         );
       })}

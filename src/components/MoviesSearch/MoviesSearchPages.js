@@ -7,12 +7,16 @@ import {
 import { useState } from 'react';
 import { getMovies } from 'components/API';
 import { SearchingMoviesList } from 'components/Pages/SearchigMovies/SearchigMovies';
+import { useSearchParams } from 'react-router-dom';
+
+
+
 
 export const MoviesSearch = () => {
   const adress = '/search/movie';
   const [inputValue, setInputValue] = useState('');
   const [trendingMovies, setTrendingMovies] = useState([]);
-
+  const [, setSearchParams] = useSearchParams('');
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -23,6 +27,8 @@ export const MoviesSearch = () => {
     try {
       const moviesData = await getMovies(`${adress}?query=${inputValue}`);
       setTrendingMovies(moviesData.results);
+      setSearchParams({ query: inputValue });
+
     } catch (error) {
       console.error('Error fetching movies:', error);
     }
