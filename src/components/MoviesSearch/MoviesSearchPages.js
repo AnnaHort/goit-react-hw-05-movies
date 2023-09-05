@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getMovies } from 'components/API';
 import { SearchingMoviesList } from 'components/Pages/SearchigMovies/SearchigMovies';
-import { InputStyled, SearchButtonStyled, SearchForm } from './MoviesSearchPages.style';
+import {
+  InputStyled,
+  SearchButtonStyled,
+  SearchForm,
+} from './MoviesSearchPages.style';
 import { BiSearchAlt2 } from 'react-icons/bi';
-
 
 export const MoviesSearch = () => {
   const adress = '/search/movie';
@@ -12,14 +15,20 @@ export const MoviesSearch = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams('');
 
-
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const query = searchParams.get('query');
+        console.log(query);
         if (query) {
           const moviesData = await getMovies(`${adress}?query=${query}`);
           setTrendingMovies(moviesData.results);
+          const result = moviesData.results;
+
+          if (result.length === 0) {
+            setSearchParams('');
+            return alert('sorry there are no movies with this name');
+          }
         } else {
           setTrendingMovies([]);
         }
@@ -27,10 +36,9 @@ export const MoviesSearch = () => {
         console.error('Error fetching movies:', error);
       }
     };
-  
+
     fetchMovies();
-  }, [searchParams]);
-  
+  }, [setSearchParams, searchParams]);
 
   const handleSubmit = e => {
     e.preventDefault();

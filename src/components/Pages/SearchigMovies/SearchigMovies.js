@@ -13,7 +13,7 @@ export const SearchingMoviesList = ({ trendingMovies }) => {
         }
         return (
           <ListElementStyle key={movie.id}>
-            <LinkElement to={`/movie/${movie.id}`}>{movie.title}</LinkElement>
+            <LinkElement to={`/movies/${movie.id}`}>{movie.title}</LinkElement>
           </ListElementStyle>
         );
       })}
