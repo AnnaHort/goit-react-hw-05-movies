@@ -7,11 +7,11 @@ import {
   MovieInfoStyle,
   PosterContainerStyle,
   TitleStyled,
-  
 } from './Movies.styled';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from 'components/API';
+
 
 export const Movies = () => {
   const [, setData] = useState({});
@@ -21,9 +21,7 @@ export const Movies = () => {
   const [genres, setGenres] = useState([]);
   const [poster, setPoster] = useState('');
 
-  const location = useLocation();
-  const parts = location.pathname.split('/');
-  const id = parts[parts.length - 1];
+  const {id} = useParams();
   const adress = `/movie/${id}`;
 
   useEffect(() => {
@@ -73,24 +71,24 @@ export const Movies = () => {
       </GoBackStyle>
       <MovieInfoStyle>
         <PosterContainerStyle>
-        <img
-          src={`https://image.tmdb.org/t/p/w300${poster}`}
-          alt={`poster of movie - "${title}"`}
-        />
+          <img
+            src={`https://image.tmdb.org/t/p/w300${poster}`}
+            alt={`poster of movie - "${title}"`}
+          />
         </PosterContainerStyle>
         <MovieInfoContainer>
-        <h2>{title}</h2>
-        <p>User score: {usesrScore}%</p>
-        <h3>Overview</h3>
-        <p>{overview}</p>
-        <h3>Genres</h3>
-        <p>{genres}</p>
+          <h2>{title}</h2>
+          <p>User score: {usesrScore}%</p>
+          <h3>Overview</h3>
+          <p>{overview}</p>
+          <h3>Genres</h3>
+          <p>{genres}</p>
         </MovieInfoContainer>
-       
       </MovieInfoStyle>
       <ContainerInfo>
-        <Link to="">Cast</Link>
-        <Link to="">Reviews</Link>
+        Additional Information
+        <Link to={`/movies/${id}/cast`}>Cast</Link>
+        <Link to={`/movies/${id}/reviews`}>Reviews</Link>
       </ContainerInfo>
       <Outlet />
     </ContainerStyled>
