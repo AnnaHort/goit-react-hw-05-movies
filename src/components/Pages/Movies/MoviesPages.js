@@ -15,7 +15,7 @@ import {Circles} from 'react-loader-spinner';
 <Circles
   height="80"
   width="80"
-  fill="#B69DC6"
+  fill="#4D5BA8"
   ariaLabel="circles-loading"
   wrapperStyle={{}}
   wrapperClass="loader"
@@ -65,7 +65,7 @@ export const Movies = () => {
         });
 
         setGenres(movieGenre.join(', '));
-        // setLoading(false);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching movie:', error);
         setLoading(false);
