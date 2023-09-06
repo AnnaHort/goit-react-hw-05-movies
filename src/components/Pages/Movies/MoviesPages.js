@@ -1,8 +1,10 @@
 import { BsArrowBarLeft } from 'react-icons/bs';
 import {
+  AdditionalInfoStyle,
   ContainerInfo,
   ContainerStyled,
   GoBackStyle,
+  ListStyle,
   MovieInfoContainer,
   MovieInfoStyle,
   PosterContainerStyle,
@@ -12,6 +14,7 @@ import { Link, Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from 'components/API';
 import {Circles} from 'react-loader-spinner';
+import { LinkElement, ListElementStyle } from '../TrendingList/TrendingList.styled';
 <Circles
   height="80"
   width="80"
@@ -81,7 +84,8 @@ export const Movies = () => {
   }
 
   return (
-    <ContainerStyled>
+    <>
+     <ContainerStyled>
       <TitleStyled>Movies</TitleStyled>
       <GoBackStyle to="/">
         <BsArrowBarLeft />
@@ -103,12 +107,23 @@ export const Movies = () => {
           <p>{genres}</p>
         </MovieInfoContainer>
       </MovieInfoStyle>
+      </ContainerStyled>
       <ContainerInfo>
-        Additional Information
-        <Link to={`/movies/${id}/cast`}>Cast</Link>
-        <Link to={`/movies/${id}/reviews`}>Reviews</Link>
+        <AdditionalInfoStyle>Additional Information</AdditionalInfoStyle>
+        <ListStyle>
+          <ListElementStyle>
+          <LinkElement to={`/movies/${id}/cast`}>Cast</LinkElement>
+          </ListElementStyle>
+          <ListElementStyle>
+          <LinkElement to={`/movies/${id}/reviews`}>Reviews</LinkElement>
+          </ListElementStyle>
+        </ListStyle>
+        
+        
       </ContainerInfo>
       <Outlet />
-    </ContainerStyled>
+    </>
+   
+    
   );
 };

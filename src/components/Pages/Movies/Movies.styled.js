@@ -39,7 +39,22 @@ export const MovieInfoStyle = styled.div`
 export const ContainerInfo = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  padding: 20px 20px 20px 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 `;
+
+export const AdditionalInfoStyle = styled.p`
+font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+    font-size: 20px;
+`
+export const ListStyle = styled.ul`
+display: flex;
+flex-direction: column;
+gap: 8px;
+`
 
 export const PosterContainerStyle = styled.div`
   margin-right: 20px;
