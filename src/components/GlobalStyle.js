@@ -30,6 +30,10 @@ button {
     cursor: pointer;
 }
 
+.loader{
+    fill:black
+}
+
 `;
 
 export const SectionContainer = styled.div`

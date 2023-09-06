@@ -11,15 +11,27 @@ import {
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from 'components/API';
+import {Circles} from 'react-loader-spinner';
+<Circles
+  height="80"
+  width="80"
+  fill="#B69DC6"
+  ariaLabel="circles-loading"
+  wrapperStyle={{}}
+  wrapperClass="loader"
+  visible={true}
+  
+/>
 
 
 export const Movies = () => {
-  const [, setData] = useState({});
+  const [data, setData] = useState({});
   const [title, setTitle] = useState('');
   const [vote, setVote] = useState('');
   const [overview, setOverview] = useState('');
   const [genres, setGenres] = useState([]);
   const [poster, setPoster] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const {id} = useParams();
   const adress = `/movie/${id}`;
@@ -53,14 +65,20 @@ export const Movies = () => {
         });
 
         setGenres(movieGenre.join(', '));
+        // setLoading(false);
       } catch (error) {
         console.error('Error fetching movie:', error);
+        setLoading(false);
       }
     };
     fetchData();
   }, [adress]);
 
   const usesrScore = (vote * 10).toFixed(0);
+
+  if(loading && data){
+    return <Circles/>
+  }
 
   return (
     <ContainerStyled>
