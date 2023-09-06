@@ -3,8 +3,11 @@ import {
   ContainerInfo,
   ContainerStyled,
   GoBackStyle,
+  MovieInfoContainer,
   MovieInfoStyle,
+  PosterContainerStyle,
   TitleStyled,
+  
 } from './Movies.styled';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -16,6 +19,7 @@ export const Movies = () => {
   const [vote, setVote] = useState('');
   const [overview, setOverview] = useState('');
   const [genres, setGenres] = useState([]);
+  const [poster, setPoster] = useState('');
 
   const location = useLocation();
   const parts = location.pathname.split('/');
@@ -35,6 +39,8 @@ export const Movies = () => {
         setVote(movieVote);
         const overView = movieData.overview;
         setOverview(overView);
+        const moviePoster = movieData.poster_path;
+        setPoster(moviePoster);
 
         const movieGenresInfo = movieData.genres;
 
@@ -66,12 +72,21 @@ export const Movies = () => {
         Go back
       </GoBackStyle>
       <MovieInfoStyle>
+        <PosterContainerStyle>
+        <img
+          src={`https://image.tmdb.org/t/p/w300${poster}`}
+          alt={`poster of movie - "${title}"`}
+        />
+        </PosterContainerStyle>
+        <MovieInfoContainer>
         <h2>{title}</h2>
         <p>User score: {usesrScore}%</p>
         <h3>Overview</h3>
         <p>{overview}</p>
         <h3>Genres</h3>
         <p>{genres}</p>
+        </MovieInfoContainer>
+       
       </MovieInfoStyle>
       <ContainerInfo>
         <Link to="">Cast</Link>

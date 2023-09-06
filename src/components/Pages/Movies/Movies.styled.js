@@ -33,9 +33,21 @@ text-decoration: none;
 
 export const MovieInfoStyle = styled.div`
 padding: 50px;
+display: flex;
 `
 
 export const ContainerInfo = styled.div`
 display: flex;
 flex-direction: column;
+`
+
+export const PosterContainerStyle = styled.div`
+margin-right: 20px;
+`
+
+export const MovieInfoContainer = styled.div`
+padding-top: 60px;
+display: flex;
+flex-direction: column;
+gap: 30px;
 `
