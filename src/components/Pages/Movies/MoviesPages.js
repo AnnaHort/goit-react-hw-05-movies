@@ -10,7 +10,7 @@ import {
   PosterContainerStyle,
   TitleStyled,
 } from './Movies.styled';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from 'components/API';
 import {Circles} from 'react-loader-spinner';
