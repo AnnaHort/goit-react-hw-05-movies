@@ -1,5 +1,4 @@
 import { getMovies } from 'components/API';
-import { ListStyled } from 'components/Reviews/Reviews.styled';
 import { useEffect, useState } from 'react';
 import { Circles } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
