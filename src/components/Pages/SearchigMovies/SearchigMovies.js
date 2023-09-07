@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import {
   LinkElement,
   ListElementStyle,
@@ -5,6 +6,8 @@ import {
 } from './SearchigMovies.styled';
 
 export const SearchingMoviesList = ({ trendingMovies }) => {
+  const location = useLocation();
+
   return (
     <ListStyle>
       {trendingMovies.map(movie => {
@@ -13,7 +16,9 @@ export const SearchingMoviesList = ({ trendingMovies }) => {
         }
         return (
           <ListElementStyle key={movie.id}>
-            <LinkElement to={`/movies/${movie.id}`}>{movie.title}</LinkElement>
+            <LinkElement to={{
+                pathname: `/movies/${movie.id}`,
+              }} state={{from: location}}>{movie.title}</LinkElement>
           </ListElementStyle>
         );
       })}

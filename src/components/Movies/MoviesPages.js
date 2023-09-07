@@ -1,6 +1,6 @@
 import { BsArrowBarLeft } from 'react-icons/bs';
-import { Outlet, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import { getMovies } from 'components/API';
 import {Circles} from 'react-loader-spinner';
 import { LinkElement, ListElementStyle } from '../Pages/TrendingList/TrendingList.styled';
@@ -16,7 +16,6 @@ import {
   TitleStyled,
 } from './Movies.styled';
 
-
 export const Movies = () => {
   const [data, setData] = useState({});
   const [title, setTitle] = useState('');
@@ -25,6 +24,15 @@ export const Movies = () => {
   const [genres, setGenres] = useState([]);
   const [poster, setPoster] = useState('');
   const [loading, setLoading] = useState(true);
+
+
+
+  const location = useLocation();
+  const backLocation = useRef(location.state?.from ?? '/');
+
+
+  
+
 
   const {id} = useParams();
 
@@ -35,7 +43,6 @@ export const Movies = () => {
       try {
         const movieData = await getMovies(adress);
         setData(movieData);
-        // console.log(movieData);
 
         const movieTitle = movieData.original_title;
         setTitle(movieTitle);
@@ -77,8 +84,7 @@ export const Movies = () => {
     <>
      <ContainerStyled>
       <TitleStyled>Movies</TitleStyled>
-      <GoBackStyle to='/'>
-      {/* <GoBackStyle to={`/movies?query=${query}`}> */}
+      <GoBackStyle to={backLocation.current}>
         <BsArrowBarLeft />
         Go back
       </GoBackStyle>

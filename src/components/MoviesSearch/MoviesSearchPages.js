@@ -68,7 +68,7 @@ export const MoviesSearch = () => {
           <BiSearchAlt2 />
         </SearchButtonStyled>
       </SearchForm>
-      <SearchingMoviesList trendingMovies={trendingMovies} />
+      <SearchingMoviesList trendingMovies={trendingMovies} query={inputValue} />
     </>
   );
 };
