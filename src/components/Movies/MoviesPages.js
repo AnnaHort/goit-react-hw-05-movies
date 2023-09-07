@@ -1,6 +1,6 @@
 import { BsArrowBarLeft } from 'react-icons/bs';
-import { Outlet, useLocation, useParams } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { Outlet, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { getMovies } from 'components/API';
 import {Circles} from 'react-loader-spinner';
 import { LinkElement, ListElementStyle } from '../Pages/TrendingList/TrendingList.styled';
