@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import {  useSearchParams } from 'react-router-dom';
 import { getMovies } from 'components/API';
 import { SearchingMoviesList } from 'components/Pages/SearchigMovies/SearchigMovies';
 import {
@@ -19,6 +19,7 @@ export const MoviesSearch = () => {
     const fetchMovies = async () => {
       try {
         const query = searchParams.get('query');
+        console.log(query)
 
         if (query) {
           const moviesData = await getMovies(`${adress}?query=${query}`);
@@ -42,6 +43,7 @@ export const MoviesSearch = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     if (!inputValue) {
       return alert('You did not write any movie :(');
     }

@@ -1,9 +1,9 @@
 import { BsArrowBarLeft } from 'react-icons/bs';
-import { Outlet, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import { getMovies } from 'components/API';
 import {Circles} from 'react-loader-spinner';
-import { LinkElement, ListElementStyle } from '../TrendingList/TrendingList.styled';
+import { LinkElement, ListElementStyle } from '../Pages/TrendingList/TrendingList.styled';
 import {
   AdditionalInfoStyle,
   ContainerInfo,
@@ -27,6 +27,7 @@ export const Movies = () => {
   const [loading, setLoading] = useState(true);
 
   const {id} = useParams();
+
   const adress = `/movie/${id}`;
 
   useEffect(() => {
@@ -72,12 +73,12 @@ export const Movies = () => {
   if(loading && data){
     return <Circles/>
   }
-
   return (
     <>
      <ContainerStyled>
       <TitleStyled>Movies</TitleStyled>
-      <GoBackStyle to="/">
+      <GoBackStyle to='/'>
+      {/* <GoBackStyle to={`/movies?query=${query}`}> */}
         <BsArrowBarLeft />
         Go back
       </GoBackStyle>
@@ -109,11 +110,8 @@ export const Movies = () => {
           </ListElementStyle>
         </ListStyle>
         
-        
       </ContainerInfo>
       <Outlet />
     </>
-   
-    
   );
 };

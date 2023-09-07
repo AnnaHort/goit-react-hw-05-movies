@@ -45,7 +45,7 @@ export const Cast = () => {
               <p>No image available</p>
             )}
             <p>{actor.original_name}</p>
-            <p>{actor.character}</p>
+            <p>Character: {actor.character}</p>
           </li>
         ))}
       </ul>
