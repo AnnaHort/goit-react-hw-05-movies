@@ -1,7 +1,9 @@
 import { getMovies } from 'components/API';
+import { ListStyled } from 'components/Reviews/Reviews.styled';
 import { useEffect, useState } from 'react';
 import { Circles } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
+import { ActorCharacterStyled, ActorName, ListStyle } from './Cast.styled';
 
 export const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -33,7 +35,7 @@ export const Cast = () => {
   }
   return (
     <>
-      <ul>
+      <ListStyle>
         {cast.map(actor => (
           <li key={actor.id}>
           {actor.profile_path ? (
@@ -44,11 +46,11 @@ export const Cast = () => {
             ) : (
               <p>No image available</p>
             )}
-            <p>{actor.original_name}</p>
-            <p>Character: {actor.character}</p>
+            <ActorName>{actor.original_name}</ActorName>
+            <ActorCharacterStyled>Character: {actor.character}</ActorCharacterStyled>
           </li>
         ))}
-      </ul>
+      </ListStyle>
     </>
   );
 };

@@ -2,6 +2,7 @@ import { getMovies } from 'components/API';
 import { useEffect, useState } from 'react';
 import { Circles } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
+import { ListElStyled, ListStyled, TextStyle } from './Reviews.styled';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -14,11 +15,10 @@ export const Reviews = () => {
     const fetchData = async () => {
       try {
         const reviewsData = await getMovies(adress);
-        // console.log(reviewsData);
+
         setLoading(false);
         const results = reviewsData.results;
         setReviews(results);
-        // console.log(results);
       } catch (error) {
         console.error('Error fetching movie:', error);
         setLoading(false);
@@ -31,19 +31,19 @@ export const Reviews = () => {
     return <Circles />;
   }
   return (
-    <ul>
+    <ListStyled>
       {reviews.length !== 0 ? (
         reviews.map(review => (
-          <li key={review.id}>
+          <ListElStyled key={review.id}>
             <>
               <h3>{review.author}</h3>
               <p>{review.content}</p>
             </>
-          </li>
+          </ListElStyled>
         ))
       ) : (
-        <h3>We don't have any reviews for this movie</h3>
+        <TextStyle>We don't have any reviews for this movie</TextStyle>
       )}
-    </ul>
+    </ListStyled>
   );
 };

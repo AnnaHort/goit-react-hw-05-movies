@@ -39,6 +39,7 @@ export const MovieInfoStyle = styled.div`
 export const ContainerInfo = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
   gap: 8px;
   padding: 20px 20px 20px 40px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
