@@ -66,3 +66,4 @@ export const MovieInfoContainer = styled.div`
   flex-direction: column;
   gap: 30px;
 `;
+

@@ -1,4 +1,9 @@
 import { BsArrowBarLeft } from 'react-icons/bs';
+import { Outlet, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getMovies } from 'components/API';
+import {Circles} from 'react-loader-spinner';
+import { LinkElement, ListElementStyle } from '../TrendingList/TrendingList.styled';
 import {
   AdditionalInfoStyle,
   ContainerInfo,
@@ -10,21 +15,6 @@ import {
   PosterContainerStyle,
   TitleStyled,
 } from './Movies.styled';
-import { Outlet, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { getMovies } from 'components/API';
-import {Circles} from 'react-loader-spinner';
-import { LinkElement, ListElementStyle } from '../TrendingList/TrendingList.styled';
-<Circles
-  height="80"
-  width="80"
-  fill="#4D5BA8"
-  ariaLabel="circles-loading"
-  wrapperStyle={{}}
-  wrapperClass="loader"
-  visible={true}
-  
-/>
 
 
 export const Movies = () => {
@@ -44,7 +34,7 @@ export const Movies = () => {
       try {
         const movieData = await getMovies(adress);
         setData(movieData);
-        console.log(movieData);
+        // console.log(movieData);
 
         const movieTitle = movieData.original_title;
         setTitle(movieTitle);

@@ -19,7 +19,7 @@ export const MoviesSearch = () => {
     const fetchMovies = async () => {
       try {
         const query = searchParams.get('query');
-        console.log(query);
+
         if (query) {
           const moviesData = await getMovies(`${adress}?query=${query}`);
           setTrendingMovies(moviesData.results);
