@@ -4,7 +4,7 @@ import { Circles } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import { ListElStyled, ListStyled, TextStyle } from './Reviews.styled';
 
-export const Reviews = () => {
+ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -47,3 +47,4 @@ export const Reviews = () => {
     </ListStyled>
   );
 };
+export default Reviews;

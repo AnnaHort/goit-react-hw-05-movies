@@ -4,7 +4,7 @@ import { Circles } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import { ActorCharacterStyled, ActorName, ListStyle } from './Cast.styled';
 
-export const Cast = () => {
+ const Cast = () => {
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -53,3 +53,4 @@ export const Cast = () => {
     </>
   );
 };
+export default Cast;

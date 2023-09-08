@@ -9,7 +9,7 @@ import {
 } from './MoviesSearchPages.style';
 import { BiSearchAlt2 } from 'react-icons/bi';
 
-export const MoviesSearch = () => {
+ const MoviesSearch = () => {
   const adress = '/search/movie';
   const [inputValue, setInputValue] = useState('');
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -72,3 +72,4 @@ export const MoviesSearch = () => {
     </>
   );
 };
+export default MoviesSearch;

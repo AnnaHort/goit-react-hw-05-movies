@@ -1,12 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
-import { HeaderList } from './HeaderList/HeaderList';
-import { TrendingList } from './Pages/TrendingList/TrendingListPages';
-import { MoviesSearch } from './MoviesSearch/MoviesSearchPages';
-import { Movies } from './Movies/MoviesPages';
-import { NotFound } from './NotFoundComponent/NotFound';
-import { Cast } from './Cast/Cast';
-import { Reviews } from './Reviews/Reviews';
+import { lazy } from 'react';
+
+const HeaderList = lazy(() => import('../components/HeaderList/HeaderList'));
+const TrendingList = lazy(() => import('../components/Pages/TrendingList/TrendingListPages'));
+const MoviesSearch = lazy(() => import('../components/MoviesSearch/MoviesSearchPages'));
+const Movies = lazy(() => import('../components/Movies/MoviesPages'));
+const Cast = lazy(() => import('../components/Cast/Cast'));
+const Reviews = lazy(() => import('../components/Reviews/Reviews'))
+const NotFound = lazy(() => import('../components/NotFoundComponent/NotFound'))
 
 export const App = () => {
   return (

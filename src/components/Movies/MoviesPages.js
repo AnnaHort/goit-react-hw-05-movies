@@ -16,7 +16,7 @@ import {
   TitleStyled,
 } from './Movies.styled';
 
-export const Movies = () => {
+ const Movies = () => {
   const [data, setData] = useState({});
   const [title, setTitle] = useState('');
   const [vote, setVote] = useState('');
@@ -25,14 +25,8 @@ export const Movies = () => {
   const [poster, setPoster] = useState('');
   const [loading, setLoading] = useState(true);
 
-
-
   const location = useLocation();
   const backLocation = useRef(location.state?.from ?? '/');
-
-
-  
-
 
   const {id} = useParams();
 
@@ -121,3 +115,4 @@ export const Movies = () => {
     </>
   );
 };
+export default Movies;

@@ -14,9 +14,6 @@ export const getMovies = async (adress) => {
   try {
     const response = await axios.get(adress, options);
     const data = response.data;
-    // console.log(data);
-    // const results = data.results;
-    // console.log(results);
     return data;
   } catch (error) {
     console.error('Request execution error:', error);

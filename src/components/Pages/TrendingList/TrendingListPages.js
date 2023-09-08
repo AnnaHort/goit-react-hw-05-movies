@@ -7,7 +7,7 @@ import {
 } from './TrendingList.styled';
 import { getMovies } from 'components/API';
 
-export const TrendingList = () => {
+ const TrendingList = () => {
   const adress = '/trending/all/day';
   const [trendingMovies, setTrendingMovies] = useState([]);
 
@@ -43,3 +43,5 @@ export const TrendingList = () => {
     </Container>
   );
 };
+
+export default TrendingList;

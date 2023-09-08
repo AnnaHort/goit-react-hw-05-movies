@@ -1,7 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import { HeaderListStyled, LinkStyle } from './HeaderList.styled';
+import { Suspense } from 'react';
 
-export const HeaderList = () => {
+const HeaderList = () => {
   return (
     <>
       <nav>
@@ -14,7 +15,12 @@ export const HeaderList = () => {
           </li>
         </HeaderListStyled>
       </nav>
+      <Suspense fallback={<div>Loading...</div>}>
       <Outlet />
+      </Suspense>
+ 
     </>
   );
 };
+
+export default HeaderList;
